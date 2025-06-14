@@ -1,0 +1,59 @@
+# API Endpoints Configuration
+users: "/api/v1/users"
+userById: "/api/v1/users/{id}"
+userProfile: "/api/v1/users/{id}/profile"
+userSettings: "/api/v1/users/{id}/settings"
+
+# Authentication Endpoints
+login: "/api/v1/auth/login"
+logout: "/api/v1/auth/logout"
+token: "/api/v1/auth/token"
+refresh: "/api/v1/auth/refresh"
+resetPassword: "/api/v1/auth/reset-password"
+
+# Product Endpoints
+products: "/api/v1/products"
+productById: "/api/v1/products/{id}"
+productCategories: "/api/v1/products/categories"
+productSearchBasic: "/api/v1/products/search"
+
+# Order Endpoints
+orders: "/api/v1/orders"
+orderById: "/api/v1/orders/{id}"
+userOrders: "/api/v1/users/{userId}/orders"
+orderItems: "/api/v1/orders/{orderId}/items"
+
+# Admin Endpoints
+adminUsers: "/api/v1/admin/users"
+adminReports: "/api/v1/admin/reports"
+adminSettings: "/api/v1/admin/settings"
+
+# Health Check Endpoints
+health: "/health"
+readiness: "/ready"
+metrics: "/metrics"
+
+# File Upload Endpoints
+uploadAvatar: "/api/v1/users/{id}/avatar"
+uploadDocument: "/api/v1/documents"
+
+# Search Endpoints
+globalSearch: "/api/v1/search"
+userSearch: "/api/v1/search/users"
+advancedProductSearch: "/api/v1/search/products"
+
+# Notification Endpoints
+notifications: "/api/v1/notifications"
+userNotifications: "/api/v1/users/{userId}/notifications"
+markAsRead: "/api/v1/notifications/{id}/read"
+
+# Payment Endpoints
+payments: "/api/v1/payments"
+paymentMethods: "/api/v1/users/{userId}/payment-methods"
+processPayment: "/api/v1/payments/process"
+
+# External API Endpoints (for integration testing)
+external:
+  jsonPlaceholder: "https://jsonplaceholder.typicode.com"
+  httpBin: "https://httpbin.org"
+  mockApi: "https://api.mockaroo.com"

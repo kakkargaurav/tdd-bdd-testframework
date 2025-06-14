@@ -1,0 +1,108 @@
+{
+  "validUser": {
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "firstName": "Test",
+    "lastName": "User",
+    "password": "SecurePass123!",
+    "role": "user",
+    "active": true,
+    "age": 30,
+    "phoneNumber": "+1-555-0123"
+  },
+  "adminUser": {
+    "username": "admin",
+    "email": "admin@example.com",
+    "firstName": "Admin",
+    "lastName": "User",
+    "password": "AdminPass456!",
+    "role": "admin",
+    "active": true,
+    "age": 35,
+    "phoneNumber": "+1-555-0124"
+  },
+  "inactiveUser": {
+    "username": "inactive",
+    "email": "inactive@example.com",
+    "firstName": "Inactive",
+    "lastName": "User",
+    "password": "InactivePass789!",
+    "role": "user",
+    "active": false,
+    "age": 28,
+    "phoneNumber": "+1-555-0125"
+  },
+  "invalidUser": {
+    "username": "",
+    "email": "invalid-email",
+    "firstName": "",
+    "lastName": "",
+    "password": "123",
+    "role": "unknown",
+    "active": null,
+    "age": -1,
+    "phoneNumber": "invalid-phone"
+  },
+  "userWithSpecialChars": {
+    "username": "special_user@123",
+    "email": "special.user+test@example.com",
+    "firstName": "João",
+    "lastName": "O'Connor",
+    "password": "Special@Pass123!",
+    "role": "user",
+    "active": true,
+    "age": 25,
+    "phoneNumber": "+55-11-98765-4321"
+  },
+  "guestUser": {
+    "username": "guest",
+    "email": "guest@example.com",
+    "firstName": "Guest",
+    "lastName": "User",
+    "password": "GuestPass000!",
+    "role": "guest",
+    "active": true,
+    "age": 20,
+    "phoneNumber": "+1-555-0126"
+  },
+  "testCredentials": {
+    "basic": {
+      "username": "testuser",
+      "password": "SecurePass123!"
+    },
+    "admin": {
+      "username": "admin",
+      "password": "AdminPass456!"
+    },
+    "invalid": {
+      "username": "invalid",
+      "password": "wrongpass"
+    }
+  },
+  "userProfiles": {
+    "minimal": {
+      "username": "minimal",
+      "email": "minimal@example.com"
+    },
+    "complete": {
+      "username": "complete",
+      "email": "complete@example.com",
+      "firstName": "Complete",
+      "lastName": "Profile",
+      "bio": "A complete user profile for testing",
+      "website": "https://example.com",
+      "location": "Test City, TC",
+      "birthDate": "1990-01-01",
+      "preferences": {
+        "newsletter": true,
+        "notifications": false,
+        "theme": "dark"
+      },
+      "socialMedia": {
+        "twitter": "@complete_user",
+        "linkedin": "complete-user",
+        "github": "completeuser"
+      }
+    }
+  }
+}
