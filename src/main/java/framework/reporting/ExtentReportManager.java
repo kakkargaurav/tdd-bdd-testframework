@@ -3,6 +3,8 @@ package framework.reporting;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.markuputils.CodeLanguage;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import framework.config.ConfigManager;
@@ -298,6 +300,105 @@ public class ExtentReportManager {
                     testDataName, testData.toString()
             );
             extentTest.get().log(Status.INFO, dataDetails);
+        }
+    }
+
+    /**
+     * Log API request with proper code formatting
+     */
+    public static void logApiRequestFormatted(String method, String endpoint, String fullUrl,
+                                             String headers, String requestBody) {
+        if (extentTest.get() != null) {
+            StringBuilder requestLog = new StringBuilder();
+            requestLog.append("<h4 style='color: #007bff; margin: 10px 0;'>🔵 API Request</h4>");
+            requestLog.append("<div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #007bff; margin: 10px 0;'>");
+            requestLog.append(String.format("<strong>Method:</strong> <span style='color: #007bff; font-weight: bold;'>%s</span><br/>", method));
+            requestLog.append(String.format("<strong>Endpoint:</strong> %s<br/>", endpoint));
+            requestLog.append(String.format("<strong>Full URL:</strong> %s<br/>", fullUrl));
+            
+            if (headers != null && !headers.trim().isEmpty()) {
+                requestLog.append("<br/><strong>Headers:</strong><br/>");
+                requestLog.append("<div style='background-color: #e9ecef; padding: 10px; border-radius: 3px; font-family: monospace; white-space: pre-wrap;'>");
+                requestLog.append(headers);
+                requestLog.append("</div>");
+            }
+            
+            if (requestBody != null && !requestBody.trim().isEmpty()) {
+                requestLog.append("<br/><strong>Request Body:</strong><br/>");
+                requestLog.append("</div>");
+                
+                // Log the request body as a separate code block for better formatting
+                extentTest.get().log(Status.INFO, requestLog.toString());
+                extentTest.get().log(Status.INFO, MarkupHelper.createCodeBlock(requestBody, CodeLanguage.JSON));
+            } else {
+                requestLog.append("</div>");
+                extentTest.get().log(Status.INFO, requestLog.toString());
+            }
+        }
+    }
+
+    /**
+     * Log API response with proper code formatting
+     */
+    public static void logApiResponseFormatted(int statusCode, String statusLine, long responseTime,
+                                              String headers, String responseBody) {
+        if (extentTest.get() != null) {
+            Status logStatus = statusCode >= 200 && statusCode < 300 ? Status.PASS : Status.FAIL;
+            String statusColor = statusCode >= 200 && statusCode < 300 ? "#28a745" : "#dc3545";
+            
+            StringBuilder responseLog = new StringBuilder();
+            responseLog.append("<h4 style='color: ").append(statusColor).append("; margin: 10px 0;'>🔴 API Response</h4>");
+            responseLog.append("<div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid ").append(statusColor).append("; margin: 10px 0;'>");
+            responseLog.append(String.format("<strong>Status Code:</strong> <span style='color: %s; font-weight: bold;'>%d</span><br/>", statusColor, statusCode));
+            responseLog.append(String.format("<strong>Status Line:</strong> %s<br/>", statusLine));
+            responseLog.append(String.format("<strong>Response Time:</strong> <span style='color: #6c757d;'>%d ms</span><br/>", responseTime));
+            
+            if (headers != null && !headers.trim().isEmpty()) {
+                responseLog.append("<br/><strong>Response Headers:</strong><br/>");
+                responseLog.append("<div style='background-color: #e9ecef; padding: 10px; border-radius: 3px; font-family: monospace; white-space: pre-wrap;'>");
+                responseLog.append(headers);
+                responseLog.append("</div>");
+            }
+            
+            if (responseBody != null && !responseBody.trim().isEmpty()) {
+                responseLog.append("<br/><strong>Response Body:</strong><br/>");
+                responseLog.append("</div>");
+                
+                // Log the response info first
+                extentTest.get().log(logStatus, responseLog.toString());
+                
+                // Then log the response body as a separate formatted code block
+                extentTest.get().log(logStatus, MarkupHelper.createCodeBlock(responseBody, CodeLanguage.JSON));
+            } else {
+                responseLog.append("<br/><em>Empty response body</em>");
+                responseLog.append("</div>");
+                extentTest.get().log(logStatus, responseLog.toString());
+            }
+        }
+    }
+
+    /**
+     * Log code block with syntax highlighting
+     */
+    public static void logCodeBlock(String code, CodeLanguage language, Status status) {
+        if (extentTest.get() != null) {
+            extentTest.get().log(status, MarkupHelper.createCodeBlock(code, language));
+        }
+    }
+
+    /**
+     * Log JSON code block with syntax highlighting
+     */
+    public static void logJsonCodeBlock(String json, Status status) {
+        logCodeBlock(json, CodeLanguage.JSON, status);
+    }
+
+    /**
+     * Log info message with HTML markup support
+     */
+    public static void logInfoMarkup(String htmlMessage) {
+        if (extentTest.get() != null) {
+            extentTest.get().log(Status.INFO, MarkupHelper.createLabel(htmlMessage, com.aventstack.extentreports.markuputils.ExtentColor.BLUE));
         }
     }
 }
