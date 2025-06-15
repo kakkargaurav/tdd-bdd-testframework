@@ -14,7 +14,7 @@ import org.testng.annotations.DataProvider;
         tags = "@smoke or @regression",
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports/parallel-cucumber-html-report",
+                "html:target/cucumber-reports/parallel-cucumber-html-report.html",
                 "json:target/cucumber-json-reports/parallel-cucumber.json",
                 "junit:target/cucumber-xml-reports/parallel-cucumber.xml",
                 "timeline:target/cucumber-reports/parallel-timeline",

@@ -11,10 +11,10 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},
-        tags = "@regression",
+        tags = "@smoke or @regression",
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports/cucumber-html-report",
+                "html:target/cucumber-reports/cucumber-html-report.html",
                 "json:target/cucumber-json-reports/cucumber.json",
                 "junit:target/cucumber-xml-reports/cucumber.xml",
                 "timeline:target/cucumber-reports/timeline",
