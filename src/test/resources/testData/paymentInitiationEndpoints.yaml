@@ -1,0 +1,173 @@
+# Payment Initiation API Endpoints Configuration
+# Based on Australian Bank Payment Initiation API OpenAPI Specification
+
+# System Endpoints
+health: "/health"
+serviceInfo: "/payment-initiation/service-info"
+
+# NPP Payment Endpoints
+nppInitiate: "/payment-initiation/npp-payments/initiate"
+nppUpdate: "/payment-initiation/npp-payments/{paymentId}/update"
+nppRequest: "/payment-initiation/npp-payments/{paymentId}/request"
+nppRetrieve: "/payment-initiation/npp-payments/{paymentId}/retrieve"
+nppControl: "/payment-initiation/npp-payments/{paymentId}/control"
+nppQuery: "/payment-initiation/npp-payments"
+
+# BECS Payment Endpoints
+becsInitiate: "/payment-initiation/becs-payments/initiate"
+becsUpdate: "/payment-initiation/becs-payments/{paymentId}/update"
+becsRequest: "/payment-initiation/becs-payments/{paymentId}/request"
+becsRetrieve: "/payment-initiation/becs-payments/{paymentId}/retrieve"
+becsControl: "/payment-initiation/becs-payments/{paymentId}/control"
+becsQuery: "/payment-initiation/becs-payments"
+
+# BPAY Payment Endpoints
+bpayInitiate: "/payment-initiation/bpay-payments/initiate"
+bpayUpdate: "/payment-initiation/bpay-payments/{paymentId}/update"
+bpayRequest: "/payment-initiation/bpay-payments/{paymentId}/request"
+bpayRetrieve: "/payment-initiation/bpay-payments/{paymentId}/retrieve"
+bpayControl: "/payment-initiation/bpay-payments/{paymentId}/control"
+bpayQuery: "/payment-initiation/bpay-payments"
+
+# Direct Debit Endpoints
+directDebitInitiate: "/payment-initiation/direct-debit/initiate"
+directDebitUpdate: "/payment-initiation/direct-debit/{paymentId}/update"
+directDebitRequest: "/payment-initiation/direct-debit/{paymentId}/request"
+directDebitRetrieve: "/payment-initiation/direct-debit/{paymentId}/retrieve"
+directDebitControl: "/payment-initiation/direct-debit/{paymentId}/control"
+directDebitQuery: "/payment-initiation/direct-debit"
+
+# Domestic Wire Transfer Endpoints
+domesticWireInitiate: "/payment-initiation/domestic-wires/initiate"
+domesticWireUpdate: "/payment-initiation/domestic-wires/{paymentId}/update"
+domesticWireRequest: "/payment-initiation/domestic-wires/{paymentId}/request"
+domesticWireRetrieve: "/payment-initiation/domestic-wires/{paymentId}/retrieve"
+domesticWireControl: "/payment-initiation/domestic-wires/{paymentId}/control"
+domesticWireExchange: "/payment-initiation/domestic-wires/{paymentId}/exchange"
+domesticWireQuery: "/payment-initiation/domestic-wires"
+
+# International Wire Transfer Endpoints
+internationalWireInitiate: "/payment-initiation/international-wires/initiate"
+internationalWireUpdate: "/payment-initiation/international-wires/{paymentId}/update"
+internationalWireRequest: "/payment-initiation/international-wires/{paymentId}/request"
+internationalWireRetrieve: "/payment-initiation/international-wires/{paymentId}/retrieve"
+internationalWireControl: "/payment-initiation/international-wires/{paymentId}/control"
+internationalWireExchange: "/payment-initiation/international-wires/{paymentId}/exchange"
+internationalWireQuery: "/payment-initiation/international-wires"
+
+# Test Scenario Endpoints
+nppTestScenarios: "/payment-initiation/npp-payments/test-scenarios"
+becsTestScenarios: "/payment-initiation/becs-payments/test-scenarios"
+bpayTestScenarios: "/payment-initiation/bpay-payments/test-scenarios"
+directDebitTestScenarios: "/payment-initiation/direct-debit/test-scenarios"
+domesticWireTestScenarios: "/payment-initiation/domestic-wires/test-scenarios"
+internationalWireTestScenarios: "/payment-initiation/international-wires/test-scenarios"
+
+# Test Data Generation Endpoint
+generateTestData: "/payment-initiation/npp-payments/test-scenarios/{scenarioIndex}/generate"
+
+# Monitoring and Metrics Endpoints
+metrics: "/metrics"
+readiness: "/ready"
+liveness: "/health/liveness"
+startup: "/health/startup"
+
+# Admin and Management Endpoints
+adminHealth: "/admin/health"
+adminMetrics: "/admin/metrics"
+adminConfig: "/admin/config"
+adminLogs: "/admin/logs"
+
+# Webhook Endpoints (for notifications)
+webhookPaymentStatus: "/webhooks/payment-status"
+webhookPaymentCompletion: "/webhooks/payment-completion"
+webhookPaymentFailure: "/webhooks/payment-failure"
+
+# Batch Processing Endpoints
+batchPaymentsSubmit: "/payment-initiation/batch/submit"
+batchPaymentsStatus: "/payment-initiation/batch/{batchId}/status"
+batchPaymentsRetrieve: "/payment-initiation/batch/{batchId}/retrieve"
+
+# Compliance and Audit Endpoints
+complianceCheck: "/payment-initiation/compliance/check"
+auditTrail: "/payment-initiation/audit/{paymentId}"
+regulatoryReporting: "/payment-initiation/regulatory/report"
+
+# Payment Status Endpoints
+paymentStatus: "/payment-initiation/status/{paymentId}"
+paymentHistory: "/payment-initiation/history/{paymentId}"
+paymentEvents: "/payment-initiation/events/{paymentId}"
+
+# Account Validation Endpoints
+validateAccount: "/payment-initiation/validate/account"
+validatePayID: "/payment-initiation/validate/payid"
+validateBSB: "/payment-initiation/validate/bsb"
+validateIBAN: "/payment-initiation/validate/iban"
+validateSWIFT: "/payment-initiation/validate/swift"
+
+# Exchange Rate Endpoints
+exchangeRates: "/payment-initiation/exchange-rates"
+exchangeRateConvert: "/payment-initiation/exchange-rates/convert"
+
+# Limits and Restrictions Endpoints
+paymentLimits: "/payment-initiation/limits/{accountId}"
+paymentRestrictions: "/payment-initiation/restrictions/{accountId}"
+
+# Notification Endpoints
+notifications: "/payment-initiation/notifications"
+notificationPreferences: "/payment-initiation/notifications/preferences"
+
+# Report Endpoints
+paymentReports: "/payment-initiation/reports"
+transactionReports: "/payment-initiation/reports/transactions"
+complianceReports: "/payment-initiation/reports/compliance"
+performanceReports: "/payment-initiation/reports/performance"
+
+# Template Endpoints
+paymentTemplates: "/payment-initiation/templates"
+templateById: "/payment-initiation/templates/{templateId}"
+
+# Scheduled Payments Endpoints
+scheduledPayments: "/payment-initiation/scheduled"
+scheduledPaymentById: "/payment-initiation/scheduled/{scheduleId}"
+scheduledPaymentControl: "/payment-initiation/scheduled/{scheduleId}/control"
+
+# Recurring Payments Endpoints
+recurringPayments: "/payment-initiation/recurring"
+recurringPaymentById: "/payment-initiation/recurring/{recurringId}"
+recurringPaymentControl: "/payment-initiation/recurring/{recurringId}/control"
+
+# Beneficiary Management Endpoints
+beneficiaries: "/payment-initiation/beneficiaries"
+beneficiaryById: "/payment-initiation/beneficiaries/{beneficiaryId}"
+beneficiaryValidation: "/payment-initiation/beneficiaries/validate"
+
+# Payment Instruction Management
+paymentInstructions: "/payment-initiation/instructions"
+paymentInstructionById: "/payment-initiation/instructions/{instructionId}"
+paymentInstructionStatus: "/payment-initiation/instructions/{instructionId}/status"
+
+# Error and Exception Handling Endpoints
+errorDetails: "/payment-initiation/errors/{errorId}"
+errorReporting: "/payment-initiation/errors/report"
+
+# Bulk Operations Endpoints
+bulkPayments: "/payment-initiation/bulk"
+bulkStatus: "/payment-initiation/bulk/{bulkId}/status"
+bulkCancel: "/payment-initiation/bulk/{bulkId}/cancel"
+
+# Configuration Endpoints
+systemConfig: "/payment-initiation/config"
+paymentConfig: "/payment-initiation/config/payments"
+limitsConfig: "/payment-initiation/config/limits"
+
+# Integration Endpoints
+bankingHubIntegration: "/payment-initiation/integration/banking-hub"
+coreSystemIntegration: "/payment-initiation/integration/core-system"
+complianceSystemIntegration: "/payment-initiation/integration/compliance"
+
+# Test Environment Specific Endpoints
+testReset: "/test/reset"
+testDataSetup: "/test/setup"
+testDataCleanup: "/test/cleanup"
+testScenarioExecute: "/test/scenario/{scenarioId}/execute"

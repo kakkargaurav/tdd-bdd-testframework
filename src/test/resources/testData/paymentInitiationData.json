@@ -1,0 +1,470 @@
+{
+  "nppPayments": {
+    "instantPayment": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "100.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Test Account Holder"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321",
+        "accountName": "Recipient Account"
+      },
+      "remittanceInformation": "NPP instant payment for testing",
+      "nppData": {
+        "paymentCategory": "INSTANT_PAYMENT",
+        "urgency": "NORMAL"
+      }
+    },
+    "payidPayment": {
+      "paymentInstructionType": "NPP_PAYID",
+      "paymentInstructionAmount": {
+        "amount": "50.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Test Account Holder"
+      },
+      "creditAccount": {
+        "accountIdentification": "",
+        "accountName": ""
+      },
+      "payIdDetails": {
+        "payIdType": "EMAIL",
+        "payIdValue": "recipient@example.com",
+        "payIdName": "Test Recipient"
+      },
+      "remittanceInformation": "PayID payment via email",
+      "nppData": {
+        "paymentCategory": "PAYID_PAYMENT",
+        "urgency": "HIGH"
+      }
+    },
+    "insufficientFunds": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "999999.99",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Test Account Holder"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321",
+        "accountName": "Recipient Account"
+      },
+      "remittanceInformation": "Test payment - should fail with insufficient funds",
+      "nppData": {
+        "paymentCategory": "INSTANT_PAYMENT",
+        "urgency": "NORMAL"
+      }
+    },
+    "invalidAccount": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "100.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Test Account Holder"
+      },
+      "creditAccount": {
+        "accountIdentification": "888888888",
+        "bankCode": "888-888",
+        "accountName": "Invalid Account"
+      },
+      "remittanceInformation": "Test payment - should fail with invalid account",
+      "nppData": {
+        "paymentCategory": "INSTANT_PAYMENT",
+        "urgency": "NORMAL"
+      }
+    },
+    "requiresApproval": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "15000.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Test Account Holder"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321",
+        "accountName": "Recipient Account"
+      },
+      "remittanceInformation": "Large payment - should require approval",
+      "nppData": {
+        "paymentCategory": "INSTANT_PAYMENT",
+        "urgency": "NORMAL"
+      }
+    }
+  },
+  "becsPayments": {
+    "directEntry": {
+      "paymentInstructionType": "BECS_DIRECT_ENTRY",
+      "paymentInstructionAmount": {
+        "amount": "500.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "BECS",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Company Ltd"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321",
+        "accountName": "Employee Name"
+      },
+      "remittanceInformation": "Salary payment",
+      "becsData": {
+        "transactionCode": "50",
+        "processingDay": "NEXT_DAY",
+        "lodgementReference": "PAYROLL_2024",
+        "remitterName": "Company Ltd",
+        "directEntryUserId": "123456",
+        "apcsNumber": "123456",
+        "userSuppliedDescription": "Payroll payments"
+      }
+    }
+  },
+  "bpayPayments": {
+    "billPayment": {
+      "paymentInstructionType": "BPAY_PAYMENT",
+      "paymentInstructionAmount": {
+        "amount": "75.50",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "BPAY",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Customer Name"
+      },
+      "creditAccount": {
+        "accountIdentification": "123456",
+        "accountName": "Energy Australia"
+      },
+      "remittanceInformation": "Electricity bill payment",
+      "bpayData": {
+        "transactionType": "BILL_PAYMENT",
+        "paymentMethod": "INTERNET_BANKING",
+        "customerReferenceNumber": "987654321098"
+      },
+      "bpayReference": {
+        "billerCode": "123456",
+        "referenceNumber": "987654321098",
+        "billerName": "Energy Australia"
+      }
+    }
+  },
+  "directDebitPayments": {
+    "recurringPayment": {
+      "paymentInstructionType": "DIRECT_DEBIT",
+      "paymentInstructionAmount": {
+        "amount": "29.99",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "DIRECT_DEBIT",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Customer Name"
+      },
+      "creditAccount": {
+        "accountIdentification": "555666777",
+        "bankCode": "555-666",
+        "accountName": "Subscription Service Pty Ltd"
+      },
+      "remittanceInformation": "Monthly subscription",
+      "directDebitData": {
+        "mandateReference": "SUB_12345",
+        "directDebitType": "RECURRING",
+        "frequency": "MONTHLY",
+        "firstDebitDate": "2025-12-15",
+        "numberOfPayments": 12,
+        "authorisationMethod": "ONLINE",
+        "creditorReference": "CRED_001",
+        "creditorName": "Subscription Service Pty Ltd",
+        "debtorReference": "DEBT_001",
+        "mandateDescription": "Monthly subscription payment"
+      }
+    }
+  },
+  "domesticWirePayments": {
+    "highValuePayment": {
+      "paymentInstructionType": "DOMESTIC_WIRE",
+      "paymentInstructionAmount": {
+        "amount": "50000.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "RTGS",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Corporate Account"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321",
+        "accountName": "Supplier Pty Ltd"
+      },
+      "remittanceInformation": "Invoice payment - urgent",
+      "domesticWireData": {
+        "wireType": "HIGH_VALUE",
+        "priority": "URGENT",
+        "settlementMethod": "RTGS",
+        "executionDate": "2025-12-15",
+        "valueDate": "2025-12-15",
+        "instructionId": "WIRE123456",
+        "endToEndId": "E2E987654",
+        "chargeBearer": "SHARED"
+      }
+    }
+  },
+  "internationalWirePayments": {
+    "commercialPayment": {
+      "paymentInstructionType": "INTERNATIONAL_WIRE",
+      "paymentInstructionAmount": {
+        "amount": "25000.00",
+        "currency": "USD"
+      },
+      "paymentMechanism": "SWIFT",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Corporate Account"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "CHASUS33",
+        "accountName": "Overseas Supplier Inc"
+      },
+      "remittanceInformation": "Trade payment for goods",
+      "internationalWireData": {
+        "wireType": "COMMERCIAL_PAYMENT",
+        "priority": "NORMAL",
+        "purposeCode": "TRADE",
+        "instructionId": "INTL123456",
+        "endToEndId": "E2E987654",
+        "chargeBearer": "SHARED",
+        "correspondentBankDetails": {
+          "correspondentBIC": "CHASUS33",
+          "correspondentName": "JP Morgan Chase Bank",
+          "correspondentAccount": "400123456"
+        },
+        "beneficiaryBankDetails": {
+          "beneficiaryBIC": "CHASUS33",
+          "beneficiaryBankName": "Chase Bank USA",
+          "beneficiaryBankAddress": "New York, NY, USA"
+        },
+        "regulatoryReporting": {
+          "reportingCode": "TRADE",
+          "reportingDescription": "Trade payment"
+        }
+      }
+    },
+    "complianceFailure": {
+      "paymentInstructionType": "INTERNATIONAL_WIRE",
+      "paymentInstructionAmount": {
+        "amount": "15000.00",
+        "currency": "USD"
+      },
+      "paymentMechanism": "SWIFT",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456",
+        "accountName": "Corporate Account"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "BLOCKEDXX",
+        "accountName": "Blocked Country Entity"
+      },
+      "remittanceInformation": "Payment to blocked country - should fail",
+      "internationalWireData": {
+        "wireType": "COMMERCIAL_PAYMENT",
+        "priority": "NORMAL",
+        "purposeCode": "TRADE",
+        "instructionId": "INTL123457",
+        "endToEndId": "E2E987655",
+        "chargeBearer": "SHARED",
+        "correspondentBankDetails": {
+          "correspondentBIC": "BLOCKEDXX",
+          "correspondentName": "Blocked Country Bank",
+          "correspondentAccount": "400123457"
+        },
+        "beneficiaryBankDetails": {
+          "beneficiaryBIC": "BLOCKEDXX",
+          "beneficiaryBankName": "Blocked Bank",
+          "beneficiaryBankAddress": "BLOCKED Country"
+        },
+        "regulatoryReporting": {
+          "reportingCode": "TRADE",
+          "reportingDescription": "Trade payment to blocked entity"
+        }
+      }
+    }
+  },
+  "updateData": {
+    "nppUpdate": {
+      "paymentInstructionAmount": {
+        "amount": "150.00",
+        "currency": "AUD"
+      },
+      "remittanceInformation": "Updated payment information",
+      "paymentDescription": "Updated payment description"
+    },
+    "domesticWireUpdate": {
+      "paymentInstructionAmount": {
+        "amount": "55000.00",
+        "currency": "AUD"
+      },
+      "remittanceInformation": "Updated wire transfer information",
+      "domesticWireData": {
+        "priority": "NORMAL",
+        "executionDate": "2025-12-16",
+        "valueDate": "2025-12-16"
+      }
+    }
+  },
+  "controlActions": {
+    "cancel": {
+      "controlActionType": "CANCEL",
+      "controlActionDescription": "Cancel payment",
+      "controlActionReason": "User requested cancellation"
+    },
+    "suspend": {
+      "controlActionType": "SUSPEND",
+      "controlActionDescription": "Suspend payment for review",
+      "controlActionReason": "Compliance review required"
+    },
+    "resume": {
+      "controlActionType": "RESUME",
+      "controlActionDescription": "Resume payment processing",
+      "controlActionReason": "Review completed successfully"
+    },
+    "terminate": {
+      "controlActionType": "TERMINATE",
+      "controlActionDescription": "Terminate payment processing",
+      "controlActionReason": "Payment no longer required"
+    }
+  },
+  "requestActions": {
+    "submit": {
+      "requestType": "SUBMIT",
+      "requestDescription": "Submit payment for processing"
+    },
+    "authorize": {
+      "requestType": "AUTHORIZE",
+      "requestDescription": "Authorize payment for execution"
+    },
+    "process": {
+      "requestType": "PROCESS",
+      "requestDescription": "Process authorized payment"
+    }
+  },
+  "exchangeActions": {
+    "accept": {
+      "exchangeActionType": "ACCEPT",
+      "exchangeActionDescription": "Accept payment status update"
+    },
+    "reject": {
+      "exchangeActionType": "REJECT",
+      "exchangeActionDescription": "Reject payment due to validation failure"
+    },
+    "return": {
+      "exchangeActionType": "RETURN",
+      "exchangeActionDescription": "Return payment to sender"
+    }
+  },
+  "queryFilters": {
+    "statusFilter": {
+      "status": "INITIATED",
+      "limit": 10,
+      "offset": 0
+    },
+    "amountFilter": {
+      "minAmount": 100.00,
+      "maxAmount": 1000.00,
+      "limit": 20,
+      "offset": 0
+    },
+    "dateFilter": {
+      "fromDate": "2025-01-01T00:00:00Z",
+      "toDate": "2025-12-31T23:59:59Z",
+      "limit": 50,
+      "offset": 0
+    },
+    "accountFilter": {
+      "debitAccount": "123456789",
+      "status": "COMPLETED",
+      "limit": 25,
+      "offset": 0
+    }
+  },
+  "invalidData": {
+    "missingAmount": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentMechanism": "NPP",
+      "debitAccount": {
+        "accountIdentification": "123456789",
+        "bankCode": "123-456"
+      },
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321"
+      }
+    },
+    "invalidAmountFormat": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "invalid.amount",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP"
+    },
+    "missingDebitAccount": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "100.00",
+        "currency": "AUD"
+      },
+      "paymentMechanism": "NPP",
+      "creditAccount": {
+        "accountIdentification": "987654321",
+        "bankCode": "654-321"
+      }
+    },
+    "invalidCurrency": {
+      "paymentInstructionType": "NPP_INSTANT",
+      "paymentInstructionAmount": {
+        "amount": "100.00",
+        "currency": "XXX"
+      },
+      "paymentMechanism": "NPP"
+    }
+  }
+}

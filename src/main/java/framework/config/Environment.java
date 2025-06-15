@@ -6,7 +6,8 @@ package framework.config;
 public enum Environment {
     DEV("dev"),
     STAGING("staging"),
-    PROD("prod");
+    PROD("prod"),
+    PI("PI");
 
     private final String name;
 
